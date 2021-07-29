@@ -7,6 +7,8 @@ public class InputManager : MonoBehaviour
     public GameObject sampleIcon;
     private Icon selected = null;
 
+    public MiniMenu miniMenu;
+
     // Update is called once per frame
     void Update()
     {
@@ -29,7 +31,10 @@ public class InputManager : MonoBehaviour
         else if(Input.GetMouseButton(1))
         {
             if (selected)
-                selected.GetComponent<Transform>().position = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
+            {
+                //selected.GetComponent<Transform>().position = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
+                miniMenu.SetTarget(selected);
+            }
         }
 
         if(Input.GetMouseButtonDown(0))
@@ -51,6 +56,7 @@ public class InputManager : MonoBehaviour
                 {
                     selected.DeselectIcon();
                     selected = null;
+                    
                 }
             }
         }

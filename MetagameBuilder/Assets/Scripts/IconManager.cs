@@ -8,6 +8,7 @@ public class IconManager : MonoBehaviour
     public static IconManager Instance { get { return instance; } }
 
     public List<Icon> iconList;
+    public Icon selectedIcon = null;
 
     private void Awake()
     {
@@ -19,4 +20,6 @@ public class IconManager : MonoBehaviour
         else
             Destroy(gameObject);
     }
+
+    //function to select a Icon
 }
